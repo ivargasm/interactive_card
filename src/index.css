@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500&display=swap");
+:root {
+  --clr-lg: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --clr-input-errors: hsl(0, 100%, 66%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-light-grayish-violet: hsl(270, 3%, 87%);
+  --clr-dark-grayish-violet: hsl(279, 6%, 55%);
+  --clr-very-dark-violet: hsl(278, 68%, 11%);
+}
+
+*,
+*:after,
+*:before {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  height: 100vh;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.wrapper .left-bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../src/assets/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper .left-bg .card-img {
+  width: 100%;
+  position: relative;
+}
+
+.wrapper .left-bg .card-img .front {
+  width: 450px;
+  background-image: url("../src/assets/bg-card-front.png");
+  background-repeat: no-repeat;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;
+  gap: 50px;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+}
+
+.wrapper .left-bg .card-img .front .circles {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.wrapper .left-bg .card-img .front .circles p:first-child {
+  width: 50px;
+  height: 50px;
+  background-color: var(--clr-white);
+  border-radius: 100%;
+}
+
+.wrapper .left-bg .card-img .front .circles p:last-child {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 1px solid var(--clr-white);
+}
+
+.wrapper .left-bg .card-img .front .card-number,
+.wrapper .left-bg .card-img .front .card-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .left-bg .card-img .front .card-number p,
+.wrapper .left-bg .card-img .front .card-info p {
+  color: var(--clr-white);
+}
+
+.wrapper .left-bg .card-img .back {
+  width: 450px;
+  height: 245px;
+  background-image: url("../src/assets/bg-card-back.png");
+  background-repeat: no-repeat;
+  object-fit: cover;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  border-radius: 10px;
+}
+
+.wrapper .left-bg .card-img .back .cvv {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.wrapper .left-bg .card-img .back .cvv p {
+  position: absolute;
+  right: 60px;
+  bottom: 113px;
+  color: var(--clr-white);
+}
+
+.card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-info form {
+  /* background: var(--clr-lg); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  margin-left: 300px;
+  gap: 25px;
+}
+
+.card-info form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-info form > div label {
+  color: var(--clr-very-dark-violet);
+  font-size: 12px;
+}
+
+.card-info form > div input {
+  padding: 10px;
+  border: 1px solid var(--clr-light-grayish-violet);
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.error{
+  outline: solid 1px var(--clr-input-errors);
+  color: var(--clr-input-errors);
+  font-size: 8px;
+}
+
+.errors{
+  color: var(--clr-input-errors);
+  font-size: 8px;
+}
+
+.hide{
+  display: none !important;
+}
+
+.card-info form > div input:focus {
+  outline: solid 1px hsl(278, 94%, 30%);
+  color: var(--clr-very-dark-violet);
+}
+
+.card-info form > div.exp-cvv {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-info form > div.exp-cvv .exp,
+.card-info form > div.exp-cvv .cvv {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.card-info form > div.exp-cvv .exp input {
+  width: 40%;
+}
+
+.card-info form > div.exp-cvv .cvv input {
+  width: 100%;
+}
+
+.card-info form .confirm,
+.card-info .success .confirm {
+  width: 100%;
+  background-color: var(--clr-very-dark-violet);
+  color: var(--clr-white);
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.card-info .success{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.card-info .success .check,
+.card-info .success .tk,
+.card-info .success .confirm{
+  width: 100%;
+  text-align: center;
+}
+
+.card-info .success .tk h1{
+  color: hsl(261.41deg 85.19% 23.76%);
+  font-weight: 500;
+}
+
+.card-info .success .tk p{
+  color: var(--clr-dark-grayish-violet);
+  font-weight: 300;
+}
+
+.card-info .success .confirm{
+  width: 70%;
+}
+
+@media (max-width: 1200px) {
+  .wrapper .left-bg .card-img .back,
+  .wrapper .left-bg .card-img .front {
+    width: 320px;
+    height: 245px;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .wrapper .left-bg .card-img .back,
+  .wrapper .left-bg .card-img .front {
+    width: 450px;
+    height: 245px;
+  }
+
+  .wrapper .left-bg .card-img .front{
+    top: 90px;
+  }
+
+  .wrapper .left-bg .card-img .back{
+    top: -100px;
+    left: 300px;
+  }
+
+  .wrapper .left-bg {
+    background: var(--clr-lg);
+  }
+
+  .card-info form{
+    margin-left: 0;
+    margin-top: 100px;
+  }
+
+  .card-info .success{
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 750px){
+  .wrapper .left-bg .card-img .front{
+    left: 90px;
+  }
+
+  .wrapper .left-bg .card-img .back{
+    left: 200px;
+  }
+}
+
+@media (max-width: 650px){
+  .wrapper .left-bg .card-img .front{
+    left: 90px;
+  }
+
+  .wrapper .left-bg .card-img .back{
+    left: 90px;
+    top: -150px;
+  }
+}
